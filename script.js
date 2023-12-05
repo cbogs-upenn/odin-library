@@ -80,8 +80,6 @@ function displayBooks(){
     let divNumber = 0;
     const bookCards = document.querySelector(".book-cards");
 
-    for (Book in myLibrary){
-
         for (let i = 0; i <= myLibrary.length - 1; i++){
 
         const bookCard = document.createElement('div');
@@ -97,5 +95,4 @@ function displayBooks(){
         bookCards.appendChild(bookCard);
         
     }
-}
 }
