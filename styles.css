@@ -7,7 +7,6 @@ body {
 }
 
 .book-cards {
-    background-color: lightgray;
     display: grid;
     gap: 20px;
     grid-template-columns: 120px 120 px 120px;
@@ -16,7 +15,18 @@ body {
 .bookcard {
     height: 100px;
     width: 30vw;
-    border-radius: 10px;
+    padding: 5px;
+    border-radius: 7px;
     background-color: white;
 
+}
+
+bookcard h1 {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.unread {
+    background-color: lightblue;
+    border: 2px solid mediumturquoise;
 }

@@ -89,6 +89,10 @@ function displayBooks(){
         let bookAuthor = myLibrary[i].author;
         let bookPageCount = myLibrary[i].pageCount;
         let bookReadStatus = myLibrary[i].read;
+        
+        if(!bookReadStatus){
+            bookCard.classList.add('unread');
+        }
 
         bookCard.textContent = bookTitle + " " + bookAuthor + " " + bookPageCount;
         
