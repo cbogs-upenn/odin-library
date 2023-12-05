@@ -1,6 +1,12 @@
 "use strict";
 
+// Odin Project | Intermediate JS Course 
+// Library Project
+// by Christopher Bogs (cbogs@upenn.edu)
+
 const myLibrary = [];
+
+// Do some stuff so we can see some stuff
 
 const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295, false);
 
@@ -10,6 +16,8 @@ addBooktoLibrary();
 
 console.log(myLibrary);
 
+
+//FUNCTIONS
 
 
 function Book(title, author, pageCount, read) {
