@@ -82,7 +82,7 @@ function displayBooks(){
 
     for (Book in myLibrary){
 
-        for (let i = 0; i <= myLibrary.length; i++){
+        for (let i = 0; i <= myLibrary.length - 1; i++){
 
         const bookCard = document.createElement('div');
         bookCard.classList.add('bookcard');
@@ -92,8 +92,7 @@ function displayBooks(){
         let bookPageCount = myLibrary[i].pageCount;
         let bookReadStatus = myLibrary[i].read;
 
-        console.log (bookTitle);
-        bookCard.textContent = bookTitle;
+        bookCard.textContent = bookTitle + " " + bookAuthor + " " + bookPageCount;
         
         bookCards.appendChild(bookCard);
         
