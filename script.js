@@ -8,14 +8,23 @@ const myLibrary = [];
 
 // Do some stuff so we can see some stuff
 
-const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295, false);
+const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295, true);
+const theSpiralDance = new Book("The Spiral Dance: A Rebirth of the Ancient Religion of the Great Goddess", "Starhawk", 326, true);
+const qabalahForWiccans = new Book ("Qabalah for Wiccans: Ceremonial Magic on the Pagan Path", "Jack Chanek", 274, true);
+const changeling = new Book("Changeling: A Book of Qualities", "Aidan Wachter", 240, false);
+const consortingWithSpirits = new Book("Consorting with Spirits: Your Guide to Working with Invisible Allies", "Jason G. Miller", 240, false);
 
 myLibrary.push(theHobbit);
+myLibrary.push(theSpiralDance);
+myLibrary.push(qabalahForWiccans);
+myLibrary.push(changeling);
+myLibrary.push(consortingWithSpirits);
 
-addBooktoLibrary();
+//addBooktoLibrary();
 
 console.log(myLibrary);
 
+displayBooks();
 
 //FUNCTIONS
 
@@ -64,4 +73,30 @@ function addBooktoLibrary(){
     const newBook = new Book(title, author, Number(pageCount), readStatus);
     myLibrary.push(newBook);
        
+}
+
+function displayBooks(){
+
+    let divNumber = 0;
+    const bookCards = document.querySelector(".book-cards");
+
+    for (Book in myLibrary){
+
+        for (let i = 0; i <= myLibrary.length; i++){
+
+        const bookCard = document.createElement('div');
+        bookCard.classList.add('bookcard');
+
+        let bookTitle = myLibrary[i].title;
+        let bookAuthor = myLibrary[i].author;
+        let bookPageCount = myLibrary[i].pageCount;
+        let bookReadStatus = myLibrary[i].read;
+
+        console.log (bookTitle);
+        bookCard.textContent = bookTitle;
+        
+        bookCards.appendChild(bookCard);
+        
+    }
+}
 }

@@ -1,3 +1,22 @@
 * {
     box-sizing: border-box;
 }
+
+body {
+    background-color: grey;
+}
+
+.book-cards {
+    background-color: lightgray;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 120px 120 px 120px;
+}
+
+.bookcard {
+    height: 100px;
+    width: 30vw;
+    border-radius: 10px;
+    background-color: white;
+
+}
