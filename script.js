@@ -8,16 +8,20 @@ const myLibrary = [];
 
 
 // set up the modal for adding books
-const addBookForm = document.querySelector('#addbookform');
+const addBookForm = document.querySelector('#newbookform');
+const addBookFormDialog = document.querySelector('#addbookmodal');
 const addBookButton = document.querySelector('#newbook');
 const cancelAddBook = document.querySelector('#cancel');
 const createBook = document.querySelector('#addbookbtn');
 // to show form
 addBookButton.addEventListener("click", () => {
-    addBookForm.showModal();
+    addBookFormDialog.showModal();
 });
 // to add book
-createBook.addEventListener("click", createNewBook);
+//createBook.addEventListener("click", createNewBook);
+createBook.addEventListener("click", () => {
+    createNewBook();
+});
 // to cancel form
 cancelAddBook.addEventListener("click", () => {
     addBookForm.close();
@@ -147,7 +151,21 @@ function addBookModal() {
 
 }
 
-function createNewBook(){
-    console.log("CREATE NEW BOOK ACTIVATE!");
-    //How do I get the data out of the form?
+function createNewBook(event){
+
+    event.preventDefault();
+    
+    const formData = new FormData(addBookForm);
+
+    let formTitle = "x";
+    let formAuthor = "y";
+    let formPageCount = 0;
+  
+    formTitle = formData.get("title");
+    formAuthor = formData.get("author");
+    formPageCount = formData.get("pagecount");
+    
+    const newBook = new Book(formTitle, formAuthor, Number(formPageCount), false);
+    myLibrary.push(newBook);
+
 }
