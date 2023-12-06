@@ -11,15 +11,17 @@ const myLibrary = [];
 const addBookForm = document.querySelector('#addbookform');
 const addBookButton = document.querySelector('#newbook');
 const cancelAddBook = document.querySelector('#cancel');
+const createBook = document.querySelector('#addbookbtn');
 // to show form
 addBookButton.addEventListener("click", () => {
     addBookForm.showModal();
 });
+// to add book
+createBook.addEventListener("click", createNewBook);
 // to cancel form
 cancelAddBook.addEventListener("click", () => {
     addBookForm.close();
 });
-
 
 
 
@@ -37,13 +39,7 @@ myLibrary.push(qabalahForWiccans);
 myLibrary.push(changeling);
 myLibrary.push(consortingWithSpirits);
 
-//addBooktoLibrary();
-
-console.log(myLibrary);
-
 displayBooks();
-
-
 
 
 //FUNCTIONS
@@ -149,4 +145,9 @@ function addBookModal() {
     dialog.close();
     });
 
+}
+
+function createNewBook(){
+    console.log("CREATE NEW BOOK ACTIVATE!");
+    //How do I get the data out of the form?
 }
