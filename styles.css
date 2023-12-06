@@ -6,15 +6,20 @@ body {
     background-color: grey;
 }
 
+h1 {
+    color: white;
+}
+
 .book-cards {
     display: grid;
     gap: 20px;
-    grid-template-columns: 120px 120 px 120px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    
 }
 
 .bookcard {
     height: 100px;
-    width: 30vw;
+    width: 23vw;
     padding: 5px;
     border-radius: 7px;
     background-color: white;
@@ -40,4 +45,38 @@ body {
 .unread {
     background-color: lightblue;
     border: 2px solid mediumturquoise;
+}
+
+#newbook {
+    padding: 10px;
+    margin-top: 20px;
+
+}
+
+.modalbuttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+#addbookform {
+    padding: 20px;
+}
+
+#addbook,
+#cancel {
+    margin-top: 30px;
+    margin-left: 10px;
+}
+
+dialog ul li {
+    list-style: none;
+    margin-top: 10px;
+}
+
+dialog h1 {
+    color: black;
+    text-align: center;
+    text-decoration: underline;
+    font-size: 25px;
 }

@@ -6,6 +6,23 @@
 
 const myLibrary = [];
 
+
+// set up the modal for adding books
+const addBookForm = document.querySelector('#addbookform');
+const addBookButton = document.querySelector('#newbook');
+const cancelAddBook = document.querySelector('#cancel');
+// to show form
+addBookButton.addEventListener("click", () => {
+    addBookForm.showModal();
+});
+// to cancel form
+cancelAddBook.addEventListener("click", () => {
+    addBookForm.close();
+});
+
+
+
+
 // Do some stuff so we can see some stuff
 
 const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295, true);
@@ -25,6 +42,9 @@ myLibrary.push(consortingWithSpirits);
 console.log(myLibrary);
 
 displayBooks();
+
+
+
 
 //FUNCTIONS
 
@@ -112,4 +132,21 @@ function displayBooks(){
         bookCards.appendChild(bookCard);
         
     }
+}
+
+function addBookModal() {
+    const dialog = document.querySelector("dialog");
+    const showButton = document.querySelector("dialog + button");
+    const closeButton = document.querySelector("dialog button");
+
+    // "Show the dialog" button opens the dialog modally
+    showButton.addEventListener("click", () => {
+    dialog.showModal();
+    });
+
+    // "Close" button closes the dialog
+    closeButton.addEventListener("click", () => {
+    dialog.close();
+    });
+
 }
