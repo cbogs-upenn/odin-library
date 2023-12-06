@@ -84,6 +84,12 @@ function displayBooks(){
 
         const bookCard = document.createElement('div');
         bookCard.classList.add('bookcard');
+        const bookCardTitle = document.createElement('div');
+        bookCardTitle.classList.add('booktitle');
+        const bookCardAuthor = document.createElement('div');
+        bookCardAuthor.classList.add('bookauthor');
+        const bookCardPageCount = document.createElement('div');
+        bookCardPageCount.classList.add('bookpagecount');
 
         let bookTitle = myLibrary[i].title;
         let bookAuthor = myLibrary[i].author;
@@ -94,7 +100,14 @@ function displayBooks(){
             bookCard.classList.add('unread');
         }
 
-        bookCard.textContent = bookTitle + " " + bookAuthor + " " + bookPageCount;
+        bookCardTitle.textContent = bookTitle;
+        bookCardAuthor.textContent = "by " + bookAuthor;
+        bookCardPageCount.textContent = bookPageCount + " pages";
+
+        bookCard.appendChild(bookCardTitle);
+        bookCard.appendChild(bookCardAuthor);
+        bookCard.appendChild(bookCardAuthor);
+        bookCard.appendChild(bookCardPageCount);
         
         bookCards.appendChild(bookCard);
         
