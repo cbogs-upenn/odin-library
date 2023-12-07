@@ -217,6 +217,7 @@ function createNewBook(event){
     }
 
     const newBook = new Book(formTitle, formAuthor, Number(formPageCount), false);
+   
     myLibrary.push(newBook);
 
     addBookFormDialog.close();
@@ -233,7 +234,7 @@ function destroyBookCards(){
     const bookCard = document.querySelector(".book-cards");
 
     for (let i = 0; i < bookCards.length; i++){
-        console.log(bookCards[i]);
+        
         bookCard.removeChild(bookCards[i]);
     }
 
