@@ -5,31 +5,29 @@
 // by Christopher Bogs (cbogs@upenn.edu)
 
 const myLibrary = [];
+const runtime = true;
 
 
 // set up the modal for adding books
 const addBookForm = document.querySelector('#newbookform');
 const addBookFormDialog = document.querySelector('#addbookmodal');
-const addBookButton = document.querySelector('#newbook');
-const cancelAddBook = document.querySelector('#cancel');
-const createBook = document.querySelector('#addbookbtn');
+const addBookButton = document.querySelector('#addbookbtn');
+const cancelAddBook = document.querySelector('#cancelbtn');
+const createBook = document.querySelector('#createbookbtn');
 // to show form
 addBookButton.addEventListener("click", () => {
     addBookFormDialog.showModal();
 });
 // to add book
-//createBook.addEventListener("click", createNewBook);
-createBook.addEventListener("click", () => {
-    createNewBook();
-});
+addBookForm.addEventListener("submit", createNewBook);
 // to cancel form
 cancelAddBook.addEventListener("click", () => {
-    addBookForm.close();
+    addBookFormDialog.close();
 });
 
 
 
-// Do some stuff so we can see some stuff
+// Set up some books to start up, so we can see what it's doing
 
 const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295, true);
 const theSpiralDance = new Book("The Spiral Dance: A Rebirth of the Ancient Religion of the Great Goddess", "Starhawk", 326, true);
@@ -43,7 +41,13 @@ myLibrary.push(qabalahForWiccans);
 myLibrary.push(changeling);
 myLibrary.push(consortingWithSpirits);
 
-displayBooks();
+//Display the library
+
+   displayBooks();
+
+
+
+
 
 
 //FUNCTIONS
@@ -104,6 +108,7 @@ function displayBooks(){
 
         const bookCard = document.createElement('div');
         bookCard.classList.add('bookcard');
+        bookCard.setAttribute('id', 'libraryindex'+ divNumber);
         const bookCardTitle = document.createElement('div');
         bookCardTitle.classList.add('booktitle');
         const bookCardAuthor = document.createElement('div');
@@ -117,7 +122,7 @@ function displayBooks(){
         let bookReadStatus = myLibrary[i].read;
         
         if(!bookReadStatus){
-            bookCard.classList.add('unread');
+            bookCard.classList.add('unread');   
         }
 
         bookCardTitle.textContent = bookTitle;
@@ -130,6 +135,8 @@ function displayBooks(){
         bookCard.appendChild(bookCardPageCount);
         
         bookCards.appendChild(bookCard);
+
+        divNumber++;
         
     }
 }
@@ -152,9 +159,9 @@ function addBookModal() {
 }
 
 function createNewBook(event){
+   
+    console.log("We got to the function...");
 
-    event.preventDefault();
-    
     const formData = new FormData(addBookForm);
 
     let formTitle = "x";
@@ -164,8 +171,11 @@ function createNewBook(event){
     formTitle = formData.get("title");
     formAuthor = formData.get("author");
     formPageCount = formData.get("pagecount");
+
+    console.log(formTitle + ", " + formAuthor + ", " + formPageCount);
     
     const newBook = new Book(formTitle, formAuthor, Number(formPageCount), false);
     myLibrary.push(newBook);
 
+    event.preventDefault(); //PUT THE EVENT LISTENER ON THE FORM, NOT THE DAMN BUTTON
 }
