@@ -179,18 +179,21 @@ function createNewBook(event){
     myLibrary.push(newBook);
 
     addBookFormDialog.close();
+    
+    event.preventDefault(); //PUT THE EVENT LISTENER ON THE FORM, NOT THE DAMN BUTTON
 
     displayBooks();
-
-    event.preventDefault(); //PUT THE EVENT LISTENER ON THE FORM, NOT THE DAMN BUTTON
+  
 }
 
 function destroyBookCards(){
 
     const bookCards = Array.from(document.querySelectorAll(".bookcard"));
+    const bookCard = document.querySelector(".book-cards");
 
     for (let i = 0; i < bookCards.length; i++){
-        document.removeChild(bookCards[i]);
+        console.log(bookCards[i]);
+        bookCard.removeChild(bookCards[i]);
     }
 
 
