@@ -160,8 +160,6 @@ function addBookModal() {
 
 function createNewBook(event){
    
-    console.log("We got to the function...");
-
     const formData = new FormData(addBookForm);
 
     let formTitle = "x";
