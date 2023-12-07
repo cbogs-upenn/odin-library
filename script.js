@@ -247,7 +247,6 @@ function deleteBook(id){
 }
 
 function toggleRead(id){
-    console.log(myLibrary[id].read);
 
     if (myLibrary[id].read){
         myLibrary[id].read = false;
