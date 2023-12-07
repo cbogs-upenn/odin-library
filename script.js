@@ -28,18 +28,27 @@ cancelAddBook.addEventListener("click", () => {
 
 
 // Set up some books to start up, so we can see what it's doing
+// This section will be superfluous once we integrate database functions
 
 const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295, true);
 const theSpiralDance = new Book("The Spiral Dance: A Rebirth of the Ancient Religion of the Great Goddess", "Starhawk", 326, true);
 const qabalahForWiccans = new Book ("Qabalah for Wiccans: Ceremonial Magic on the Pagan Path", "Jack Chanek", 274, true);
 const changeling = new Book("Changeling: A Book of Qualities", "Aidan Wachter", 240, false);
 const consortingWithSpirits = new Book("Consorting with Spirits: Your Guide to Working with Invisible Allies", "Jason G. Miller", 240, false);
+const sixWays = new Book("Six Ways: Approaches and Entries for Practical Magic", "Aidan Wachter", 168, true);
+const weavingFate = new Book("Weaving Fate: Hypersigils, Changing the Past, and Telling True Lies", "Aidan Wachter", 186, false);
+const tradWicca = new Book("Traditional Wicca: A Seeker's Guide", "Thorn Mooney", 218, true);
 
 myLibrary.push(theHobbit);
 myLibrary.push(theSpiralDance);
 myLibrary.push(qabalahForWiccans);
 myLibrary.push(changeling);
 myLibrary.push(consortingWithSpirits);
+myLibrary.push(sixWays);
+myLibrary.push(weavingFate);
+myLibrary.push(tradWicca);
+
+/////////////////////////////////////////////////////////////////////////
 
 //Display the library
 
