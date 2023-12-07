@@ -2,6 +2,14 @@
     box-sizing: border-box;
 }
 
+.filter-orange {
+    filter: invert(76%) sepia(21%) saturate(1664%) hue-rotate(331deg) brightness(99%) contrast(95%);
+}
+
+.filter-white {
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
+}
+
 body {
     background-color: grey;
 }
@@ -50,6 +58,11 @@ h1 {
     grid-row: 4;
     justify-self: right;
     align-self: end;
+}
+
+.bookcardreadicon:hover,
+.bookcarddeleteicon:hover {
+    filter: invert(76%) sepia(21%) saturate(1664%) hue-rotate(331deg) brightness(99%) contrast(95%);
 }
 
 .bookcarddeleteicon {
