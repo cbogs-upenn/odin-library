@@ -105,7 +105,7 @@ function displayBooks(){
     destroyBookCards();
 
     let divNumber = 0;
-    let readIcon = '';
+    
     const bookCards = document.querySelector(".book-cards");
 
         for (let i = 0; i <= myLibrary.length - 1; i++){
@@ -125,6 +125,7 @@ function displayBooks(){
         bookCardReadIcon.classList.add('bookcardreadicon');
         const bookCardDeleteIcon = document.createElement('img');
         bookCardDeleteIcon.classList.add('bookcarddeleteicon');
+        bookCardDeleteIcon.setAttribute('data-bookindex', divNumber);
 
         let bookTitle = myLibrary[i].title;
         let bookAuthor = myLibrary[i].author;
@@ -135,10 +136,12 @@ function displayBooks(){
             bookCard.classList.add('unread');
             bookCardReadIcon.setAttribute('src', "./icons/book-off.svg");
             bookCardReadIcon.setAttribute('height', 20);
+            bookCardReadIcon.setAttribute('data-bookindex', divNumber);
         } else {
             bookCard.classList.add('read');
             bookCardReadIcon.setAttribute('src', "./icons/book-open-page-variant.svg");
             bookCardReadIcon.setAttribute('height', 20);
+            bookCardReadIcon.setAttribute('data-bookindex', divNumber);
         }
 
         bookCardTitle.textContent = bookTitle;
@@ -158,6 +161,19 @@ function displayBooks(){
         bookCard.appendChild(bookCardReadIcon);
         
         bookCards.appendChild(bookCard);
+              
+        
+        bookCardDeleteIcon.addEventListener("click", () => {
+            const icon = bookCard.querySelector('.bookcarddeleteicon');
+            const id = icon.dataset.bookindex;
+            deleteBook(id);
+        });
+
+        bookCardReadIcon.addEventListener("click", () => {
+            const icon = bookCard.querySelector('.bookcardreadicon');
+            const id = icon.dataset.bookindex;
+            toggleRead(id);
+        });
 
         divNumber++;
         
@@ -224,4 +240,12 @@ function destroyBookCards(){
     }
 
 
+}
+
+function deleteBook(id){
+    console.log("deleteBook #"+id);
+}
+
+function toggleRead(id){
+    console.log("toggleRead #"+id);
 }
