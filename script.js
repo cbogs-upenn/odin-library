@@ -247,5 +247,13 @@ function deleteBook(id){
 }
 
 function toggleRead(id){
-    console.log("toggleRead #"+id);
+    console.log(myLibrary[id].read);
+
+    if (myLibrary[id].read){
+        myLibrary[id].read = false;
+    } else {
+        myLibrary[id].read = true;
+    }
+
+    displayBooks();
 }
