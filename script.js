@@ -105,19 +105,26 @@ function displayBooks(){
     destroyBookCards();
 
     let divNumber = 0;
+    let readIcon = '';
     const bookCards = document.querySelector(".book-cards");
 
         for (let i = 0; i <= myLibrary.length - 1; i++){
 
+        
         const bookCard = document.createElement('div');
         bookCard.classList.add('bookcard');
         bookCard.setAttribute('id', 'libraryindex'+ divNumber);
+        const bookDetails = document.createElement('div');
         const bookCardTitle = document.createElement('div');
         bookCardTitle.classList.add('booktitle');
         const bookCardAuthor = document.createElement('div');
         bookCardAuthor.classList.add('bookauthor');
         const bookCardPageCount = document.createElement('div');
         bookCardPageCount.classList.add('bookpagecount');
+        const bookCardReadIcon = document.createElement('img');
+        bookCardReadIcon.classList.add('bookcardreadicon');
+        const bookCardDeleteIcon = document.createElement('img');
+        bookCardDeleteIcon.classList.add('bookcarddeleteicon');
 
         let bookTitle = myLibrary[i].title;
         let bookAuthor = myLibrary[i].author;
@@ -125,17 +132,30 @@ function displayBooks(){
         let bookReadStatus = myLibrary[i].read;
         
         if(!bookReadStatus){
-            bookCard.classList.add('unread');   
+            bookCard.classList.add('unread');
+            bookCardReadIcon.setAttribute('src', "./icons/book-off.svg");
+            bookCardReadIcon.setAttribute('height', 20);
+        } else {
+            bookCard.classList.add('read');
+            bookCardReadIcon.setAttribute('src', "./icons/book-open-page-variant.svg");
+            bookCardReadIcon.setAttribute('height', 20);
         }
 
         bookCardTitle.textContent = bookTitle;
         bookCardAuthor.textContent = "by " + bookAuthor;
         bookCardPageCount.textContent = bookPageCount + " pages";
+        
+        bookCardDeleteIcon.setAttribute('src', "./icons/book-minus.svg");
+        bookCardDeleteIcon.setAttribute('height', 20);
 
-        bookCard.appendChild(bookCardTitle);
-        bookCard.appendChild(bookCardAuthor);
-        bookCard.appendChild(bookCardAuthor);
-        bookCard.appendChild(bookCardPageCount);
+        bookDetails.appendChild(bookCardTitle);
+        bookDetails.appendChild(bookCardAuthor);
+        bookDetails.appendChild(bookCardAuthor);
+        bookDetails.appendChild(bookCardPageCount);
+
+        bookCard.appendChild(bookDetails);
+        bookCard.appendChild(bookCardDeleteIcon);
+        bookCard.appendChild(bookCardReadIcon);
         
         bookCards.appendChild(bookCard);
 
@@ -165,16 +185,23 @@ function createNewBook(event){
    
     const formData = new FormData(addBookForm);
 
-    let formTitle = "x";
-    let formAuthor = "y";
+    let formTitle = "";
+    let formAuthor = "";
     let formPageCount = 0;
   
     formTitle = formData.get("title");
     formAuthor = formData.get("author");
     formPageCount = formData.get("pagecount");
 
+    if ((formTitle === "") || (formAuthor === "")){
+
+        addBookFormDialog.close();
+        event.preventDefault();
+        return;
+    }
+
     console.log(formTitle + ", " + formAuthor + ", " + formPageCount);
-    
+ 
     const newBook = new Book(formTitle, formAuthor, Number(formPageCount), false);
     myLibrary.push(newBook);
 

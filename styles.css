@@ -18,23 +18,27 @@ h1 {
 }
 
 .bookcard {
-    height: 100px;
+    height: auto;
     width: 23vw;
     padding: 5px;
     border-radius: 7px;
     background-color: white;
     border: 2px solid whitesmoke;
+    display: grid;
+    grid-template-rows: 1fr 40px;
 
 }
 
 .booktitle {
     font-weight: bold;
     font-size: 16px;
+    grid-row: 1;
 }
 
 .bookauthor {
     font-weight: normal;
     font-size: 14px;
+    grid-row: 1;
 }
 
 .bookpagecount {
@@ -42,14 +46,32 @@ h1 {
     font-size: 12px;
 }
 
+.bookcardreadicon {
+    grid-row: 4;
+    justify-self: right;
+    align-self: end;
+}
+
+.bookcarddeleteicon {
+    grid-row: 4;
+    justify-self: left;
+    align-self: end;
+}
+
 .unread {
     background-color: lightblue;
     border: 2px solid mediumturquoise;
 }
 
+.read {
+    background-color: white;
+    border: 2px solid whitesmoke;
+}
+
 #addbookbtn {
     padding: 10px;
     margin-top: 20px;
+    background-color: rgb(254, 254, 123);
 
 }
 
