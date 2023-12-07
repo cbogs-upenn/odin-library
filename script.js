@@ -216,8 +216,6 @@ function createNewBook(event){
         return;
     }
 
-    console.log(formTitle + ", " + formAuthor + ", " + formPageCount);
- 
     const newBook = new Book(formTitle, formAuthor, Number(formPageCount), false);
     myLibrary.push(newBook);
 
