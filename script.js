@@ -101,6 +101,9 @@ function addBooktoLibrary(){
 
 function displayBooks(){
 
+    //first destroy existing cards so we don't just pile the new ones on
+    destroyBookCards();
+
     let divNumber = 0;
     const bookCards = document.querySelector(".book-cards");
 
@@ -175,5 +178,20 @@ function createNewBook(event){
     const newBook = new Book(formTitle, formAuthor, Number(formPageCount), false);
     myLibrary.push(newBook);
 
+    addBookFormDialog.close();
+
+    displayBooks();
+
     event.preventDefault(); //PUT THE EVENT LISTENER ON THE FORM, NOT THE DAMN BUTTON
+}
+
+function destroyBookCards(){
+
+    const bookCards = Array.from(document.querySelectorAll(".bookcard"));
+
+    for (let i = 0; i < bookCards.length; i++){
+        document.removeChild(bookCards[i]);
+    }
+
+
 }
