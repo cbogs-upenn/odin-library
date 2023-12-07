@@ -243,6 +243,11 @@ function destroyBookCards(){
 
 function deleteBook(id){
     console.log("deleteBook #"+id);
+    //may want to add a modal here to verify intent to delete, but I'm not doing that right now
+    
+    myLibrary.splice(id, 1);
+    displayBooks();
+
 }
 
 function toggleRead(id){
